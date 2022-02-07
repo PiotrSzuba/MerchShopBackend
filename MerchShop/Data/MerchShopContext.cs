@@ -11,7 +11,7 @@ namespace MerchShop.Data
 {
     public class MerchShopContext : DbContext
     {
-        private void SeedDatabase(ModelBuilder modelBuilder)
+        private static void SeedDatabase(ModelBuilder modelBuilder)
         {
             DefaultUsers.Initialize(modelBuilder);
             DefaultGenericItems.Initialize(modelBuilder);
@@ -37,6 +37,6 @@ namespace MerchShop.Data
         public DbSet<OrderedItem> OrderedItem { get; set; }
         public DbSet<ShippingAddress> ShippingAddress { get; set; }
         public DbSet<User> User { get; set; }
-        public DbSet<MerchShop.Models.ItemStatistics> ItemStatistics { get; set; }
+        public DbSet<ItemStatistics> ItemStatistics { get; set; }
     }
 }
