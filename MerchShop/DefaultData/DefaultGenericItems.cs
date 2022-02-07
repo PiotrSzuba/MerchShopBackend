@@ -7,17 +7,14 @@ namespace MerchShop.DefaultData
 {
     public class DefaultGenericItems
     {
-        public static void Initialize(MerchShopContext context)
+        public static void Initialize(ModelBuilder modelBuilder)
         {
-            if (context.GenericItem.Any())
-            {
-                return;
-            }
-            context.GenericItem.AddRange(
+            modelBuilder.Entity<GenericItem>().HasData(
                 new GenericItem
                 {
+                    Id = 1,
                     Name = "STD shirt",
-                    Price = Convert.ToDecimal(79.0),
+                    Price = Convert.ToDecimal(79.99),
                     OnDiscount = false,
                     DiscountValue = 0,
                     IsInStock = true,
@@ -25,8 +22,9 @@ namespace MerchShop.DefaultData
                 },
                 new GenericItem
                 {
+                    Id = 2,
                     Name = "Better jeans",
-                    Price = Convert.ToDecimal(150.0),
+                    Price = Convert.ToDecimal(150.99),
                     OnDiscount = false,
                     DiscountValue = 0,
                     IsInStock = true,
@@ -34,15 +32,15 @@ namespace MerchShop.DefaultData
                 },
                 new GenericItem
                 {
+                    Id = 3,
                     Name = "Basic hoodie",
-                    Price = Convert.ToDecimal(240.0),
+                    Price = Convert.ToDecimal(240.99),
                     OnDiscount = false,
                     DiscountValue = 0,
                     IsInStock = true,
                     PreviewImage = null
                 }
                 );
-            context.SaveChanges();
         }
     }
 }

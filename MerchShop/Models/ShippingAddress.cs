@@ -26,9 +26,10 @@ namespace MerchShop.Models
 
         public string? ApartmentNumber { get; set; }
 
+        [Required]
         public int UserId { get; set; }
         public virtual User? User { get; set; }
-        public virtual Order? Order { get; set; }
+        public virtual ICollection<Order>? Order { get; set; }
     }
 }
 

@@ -4,6 +4,7 @@ using MerchShop.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MerchShop.Migrations
 {
     [DbContext(typeof(MerchShopContext))]
-    partial class MerchShopContextModelSnapshot : ModelSnapshot
+    [Migration("20220207133119_data_seeding_Orders")]
+    partial class data_seeding_Orders
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -114,7 +116,7 @@ namespace MerchShop.Migrations
                         {
                             Id = 1,
                             BoughtOnSale = false,
-                            BoughtTime = new DateTime(2022, 2, 8, 14, 39, 7, 606, DateTimeKind.Local).AddTicks(511),
+                            BoughtTime = new DateTime(2022, 2, 8, 14, 31, 18, 583, DateTimeKind.Local).AddTicks(8260),
                             BuyersCountry = "PL",
                             GenericItemId = 1
                         },
@@ -122,7 +124,7 @@ namespace MerchShop.Migrations
                         {
                             Id = 2,
                             BoughtOnSale = false,
-                            BoughtTime = new DateTime(2022, 2, 9, 14, 39, 7, 606, DateTimeKind.Local).AddTicks(517),
+                            BoughtTime = new DateTime(2022, 2, 9, 14, 31, 18, 583, DateTimeKind.Local).AddTicks(8267),
                             BuyersCountry = "PL",
                             GenericItemId = 1
                         },
@@ -130,7 +132,7 @@ namespace MerchShop.Migrations
                         {
                             Id = 3,
                             BoughtOnSale = true,
-                            BoughtTime = new DateTime(2022, 2, 10, 14, 39, 7, 606, DateTimeKind.Local).AddTicks(520),
+                            BoughtTime = new DateTime(2022, 2, 10, 14, 31, 18, 583, DateTimeKind.Local).AddTicks(8270),
                             BuyersCountry = "PL",
                             GenericItemId = 1
                         },
@@ -138,7 +140,7 @@ namespace MerchShop.Migrations
                         {
                             Id = 4,
                             BoughtOnSale = false,
-                            BoughtTime = new DateTime(2022, 2, 7, 14, 39, 7, 606, DateTimeKind.Local).AddTicks(523),
+                            BoughtTime = new DateTime(2022, 2, 7, 14, 31, 18, 583, DateTimeKind.Local).AddTicks(8273),
                             BuyersCountry = "PL",
                             GenericItemId = 2
                         },
@@ -146,7 +148,7 @@ namespace MerchShop.Migrations
                         {
                             Id = 5,
                             BoughtOnSale = false,
-                            BoughtTime = new DateTime(2022, 2, 8, 14, 39, 7, 606, DateTimeKind.Local).AddTicks(526),
+                            BoughtTime = new DateTime(2022, 2, 8, 14, 31, 18, 583, DateTimeKind.Local).AddTicks(8276),
                             BuyersCountry = "PL",
                             GenericItemId = 2
                         },
@@ -154,7 +156,7 @@ namespace MerchShop.Migrations
                         {
                             Id = 6,
                             BoughtOnSale = false,
-                            BoughtTime = new DateTime(2022, 2, 8, 14, 39, 7, 606, DateTimeKind.Local).AddTicks(529),
+                            BoughtTime = new DateTime(2022, 2, 8, 14, 31, 18, 583, DateTimeKind.Local).AddTicks(8280),
                             BuyersCountry = "PL",
                             GenericItemId = 3
                         },
@@ -162,7 +164,7 @@ namespace MerchShop.Migrations
                         {
                             Id = 7,
                             BoughtOnSale = false,
-                            BoughtTime = new DateTime(2022, 2, 9, 14, 39, 7, 606, DateTimeKind.Local).AddTicks(532),
+                            BoughtTime = new DateTime(2022, 2, 9, 14, 31, 18, 583, DateTimeKind.Local).AddTicks(8283),
                             BuyersCountry = "PL",
                             GenericItemId = 3
                         },
@@ -170,7 +172,7 @@ namespace MerchShop.Migrations
                         {
                             Id = 8,
                             BoughtOnSale = true,
-                            BoughtTime = new DateTime(2022, 2, 10, 14, 39, 7, 606, DateTimeKind.Local).AddTicks(535),
+                            BoughtTime = new DateTime(2022, 2, 10, 14, 31, 18, 583, DateTimeKind.Local).AddTicks(8286),
                             BuyersCountry = "PL",
                             GenericItemId = 3
                         });
@@ -208,7 +210,7 @@ namespace MerchShop.Migrations
                         new
                         {
                             Id = 1,
-                            OrderDateTime = new DateTime(2022, 2, 8, 14, 39, 7, 606, DateTimeKind.Local).AddTicks(398),
+                            OrderDateTime = new DateTime(2022, 2, 8, 14, 31, 18, 583, DateTimeKind.Local).AddTicks(8042),
                             OrderStatus = 4,
                             ShippingAddressId = 1,
                             UserId = 1
@@ -216,7 +218,7 @@ namespace MerchShop.Migrations
                         new
                         {
                             Id = 2,
-                            OrderDateTime = new DateTime(2022, 2, 10, 14, 39, 7, 606, DateTimeKind.Local).AddTicks(444),
+                            OrderDateTime = new DateTime(2022, 2, 10, 14, 31, 18, 583, DateTimeKind.Local).AddTicks(8205),
                             OrderStatus = 3,
                             ShippingAddressId = 1,
                             UserId = 1
@@ -224,7 +226,7 @@ namespace MerchShop.Migrations
                         new
                         {
                             Id = 3,
-                            OrderDateTime = new DateTime(2022, 2, 8, 14, 39, 7, 606, DateTimeKind.Local).AddTicks(447),
+                            OrderDateTime = new DateTime(2022, 2, 8, 14, 31, 18, 583, DateTimeKind.Local).AddTicks(8212),
                             OrderStatus = 4,
                             ShippingAddressId = 2,
                             UserId = 2
@@ -232,7 +234,7 @@ namespace MerchShop.Migrations
                         new
                         {
                             Id = 4,
-                            OrderDateTime = new DateTime(2022, 2, 11, 14, 39, 7, 606, DateTimeKind.Local).AddTicks(450),
+                            OrderDateTime = new DateTime(2022, 2, 11, 14, 31, 18, 583, DateTimeKind.Local).AddTicks(8215),
                             OrderStatus = 2,
                             ShippingAddressId = 3,
                             UserId = 3
@@ -240,7 +242,7 @@ namespace MerchShop.Migrations
                         new
                         {
                             Id = 5,
-                            OrderDateTime = new DateTime(2022, 2, 7, 14, 39, 7, 606, DateTimeKind.Local).AddTicks(454),
+                            OrderDateTime = new DateTime(2022, 2, 7, 14, 31, 18, 583, DateTimeKind.Local).AddTicks(8218),
                             OrderStatus = 1,
                             ShippingAddressId = 3,
                             UserId = 3
@@ -268,38 +270,6 @@ namespace MerchShop.Migrations
                     b.HasIndex("OrderId");
 
                     b.ToTable("OrderedItem");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            GenericItemId = 1,
-                            OrderId = 1
-                        },
-                        new
-                        {
-                            Id = 2,
-                            GenericItemId = 2,
-                            OrderId = 1
-                        },
-                        new
-                        {
-                            Id = 3,
-                            GenericItemId = 1,
-                            OrderId = 2
-                        },
-                        new
-                        {
-                            Id = 4,
-                            GenericItemId = 1,
-                            OrderId = 2
-                        },
-                        new
-                        {
-                            Id = 5,
-                            GenericItemId = 3,
-                            OrderId = 3
-                        });
                 });
 
             modelBuilder.Entity("MerchShop.Models.ShippingAddress", b =>

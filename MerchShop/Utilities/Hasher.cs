@@ -6,7 +6,7 @@ namespace MerchShop.Utilities
 {
     public static class Hasher
     {
-        public static string hashEncoder(string value)
+        public static string HashEncode256(string value)
         {
             StringBuilder Sb = new StringBuilder();
 

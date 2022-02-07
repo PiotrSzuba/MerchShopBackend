@@ -19,22 +19,21 @@ namespace MerchShop.Models
 
         [Required]
         [MinLength(4, ErrorMessage = "The {0} value must be longer than {1} characters.")]
-        [StringLength(32, ErrorMessage = "The {0} value cannot exceed {1} characters. ")]
+        [StringLength(128, ErrorMessage = "The {0} value cannot exceed {1} characters. ")]
         public string? Password { get; set; }
 
         [Required,MinLength(2,ErrorMessage = "The {0} value must be longer than {1} characters.")]
         public string? Role { get; set; }
 
-        [MinLength(4, ErrorMessage = "The {0} value must be longer than {1} characters.")]
+        [MinLength(2, ErrorMessage = "The {0} value must be longer than {1} characters.")]
         [StringLength(32, ErrorMessage = "The {0} value cannot exceed {1} characters. ")]
         public string? Name { get; set; }
 
-        [MinLength(4, ErrorMessage = "The {0} value must be longer than {1} characters.")]
+        [MinLength(2, ErrorMessage = "The {0} value must be longer than {1} characters.")]
         [StringLength(32, ErrorMessage = "The {0} value cannot exceed {1} characters. ")]
         public string? Surname { get; set; }
 
         public virtual ICollection<ShippingAddress>? ShippingAddresses { get; set; }
         public virtual ICollection<Order>? Orders { get; set; }
-
     }
 }

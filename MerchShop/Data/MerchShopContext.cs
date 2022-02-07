@@ -11,19 +11,25 @@ namespace MerchShop.Data
 {
     public class MerchShopContext : DbContext
     {
-        private void SeedDataBase()
+        private void SeedDatabase(ModelBuilder modelBuilder)
         {
-            DefaultUsers.Initialize(this);
-            DefaultGenericItems.Initialize(this);
-            DefaultShippingAddresses.Initialize(this);
-            DefaultOrderedItems.Initialize(this);
-            DefaultOrders.Initialize(this);
-            DefaultItemStatistics.Initialize(this);
+            DefaultUsers.Initialize(modelBuilder);
+            DefaultGenericItems.Initialize(modelBuilder);
+            DefaultShippingAddresses.Initialize(modelBuilder);
+            DefaultOrders.Initialize(modelBuilder);
+            DefaultOrderedItems.Initialize(modelBuilder);
+            DefaultItemStatistics.Initialize(modelBuilder);
         }
 
         public MerchShopContext (DbContextOptions<MerchShopContext> options) : base(options)
         {
-            SeedDataBase();
+
+        }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+            SeedDatabase(modelBuilder);
         }
 
         public DbSet<GenericItem> GenericItem { get; set; }
