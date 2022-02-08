@@ -1,0 +1,52 @@
+.card-container{
+    width: 350px;
+    margin: 0.5em;
+    display: flex;  
+    flex-wrap: wrap;
+    cursor: pointer;
+}
+
+.card-image{
+    width: 350px;
+}
+
+.card-description{
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    font-weight: bold;
+}
+  
+img{
+    -webkit-filter: brightness(95%);
+    filter: brightness(95%);    
+}
+
+img:hover { 
+    -webkit-filter: brightness(100%);
+    filter: brightness(100%);  
+  }
+
+.center{
+    justify-content: center; 
+}
+
+.card-container a:link {
+    text-decoration: none;
+    color: black;
+  }
+  
+.card-container a:visited {
+    text-decoration: none;
+    color: black;
+  }
+  
+.card-container a:hover {
+    text-decoration: none;
+    color: black;
+  }
+  
+  .card-container a:active {
+    text-decoration: none;
+    color: black;
+  }

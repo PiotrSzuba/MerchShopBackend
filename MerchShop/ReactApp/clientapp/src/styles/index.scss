@@ -1,0 +1,29 @@
+@import "./variables.scss";
+@import "~bootstrap/scss/bootstrap";
+
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+body {
+    width: 100%;
+    font-family: $Poppins;
+    color: $dark;
+}
+
+body .container {
+    width: 60%;
+}
+
+.home-container {
+    display: flex;  
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: left;
+}
+
+#root {
+    height: 100%;
+}
