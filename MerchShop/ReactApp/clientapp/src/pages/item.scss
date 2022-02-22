@@ -1,0 +1,29 @@
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    height: 100%;
+  }
+
+  .column {
+    padding: 10px;
+  }
+
+  .left {
+    width: 45%;
+    min-width: 400px;
+  }
+  
+  .right {
+    width: 55%;
+    justify-content: center;
+  }
+
+  .preview-image{
+    width: 100%;
+    height: auto;
+}
+
+.title{
+  color: rgb(192, 192, 192);
+}

@@ -4,6 +4,7 @@ using MerchShop.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MerchShop.Migrations
 {
     [DbContext(typeof(MerchShopContext))]
-    partial class MerchShopContextModelSnapshot : ModelSnapshot
+    [Migration("20220209162950_ReturnedPreviousMigration")]
+    partial class ReturnedPreviousMigration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -51,7 +53,7 @@ namespace MerchShop.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("GenericItem", (string)null);
+                    b.ToTable("GenericItem");
 
                     b.HasData(
                         new
@@ -107,7 +109,7 @@ namespace MerchShop.Migrations
 
                     b.HasIndex("GenericItemId");
 
-                    b.ToTable("ItemStatistics", (string)null);
+                    b.ToTable("ItemStatistics");
 
                     b.HasData(
                         new
@@ -202,7 +204,7 @@ namespace MerchShop.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("Order", (string)null);
+                    b.ToTable("Order");
 
                     b.HasData(
                         new
@@ -267,7 +269,7 @@ namespace MerchShop.Migrations
 
                     b.HasIndex("OrderId");
 
-                    b.ToTable("OrderedItem", (string)null);
+                    b.ToTable("OrderedItem");
 
                     b.HasData(
                         new
@@ -340,7 +342,7 @@ namespace MerchShop.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("ShippingAddress", (string)null);
+                    b.ToTable("ShippingAddress");
 
                     b.HasData(
                         new
@@ -414,7 +416,7 @@ namespace MerchShop.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("User", (string)null);
+                    b.ToTable("User");
 
                     b.HasData(
                         new

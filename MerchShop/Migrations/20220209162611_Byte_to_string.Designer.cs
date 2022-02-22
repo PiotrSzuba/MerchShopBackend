@@ -4,6 +4,7 @@ using MerchShop.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MerchShop.Migrations
 {
     [DbContext(typeof(MerchShopContext))]
-    partial class MerchShopContextModelSnapshot : ModelSnapshot
+    [Migration("20220209162611_Byte_to_string")]
+    partial class Byte_to_string
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -43,15 +45,15 @@ namespace MerchShop.Migrations
                     b.Property<bool?>("OnDiscount")
                         .HasColumnType("bit");
 
-                    b.Property<byte[]>("PreviewImage")
-                        .HasColumnType("varbinary(max)");
+                    b.Property<string>("PreviewImage")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<decimal>("Price")
                         .HasColumnType("decimal(18,2)");
 
                     b.HasKey("Id");
 
-                    b.ToTable("GenericItem", (string)null);
+                    b.ToTable("GenericItem");
 
                     b.HasData(
                         new
@@ -107,14 +109,14 @@ namespace MerchShop.Migrations
 
                     b.HasIndex("GenericItemId");
 
-                    b.ToTable("ItemStatistics", (string)null);
+                    b.ToTable("ItemStatistics");
 
                     b.HasData(
                         new
                         {
                             Id = 1,
                             BoughtOnSale = false,
-                            BoughtTime = new DateTime(2022, 2, 10, 17, 29, 49, 824, DateTimeKind.Local).AddTicks(6207),
+                            BoughtTime = new DateTime(2022, 2, 10, 17, 26, 10, 585, DateTimeKind.Local).AddTicks(6084),
                             BuyersCountry = "PL",
                             GenericItemId = 1
                         },
@@ -122,7 +124,7 @@ namespace MerchShop.Migrations
                         {
                             Id = 2,
                             BoughtOnSale = false,
-                            BoughtTime = new DateTime(2022, 2, 11, 17, 29, 49, 824, DateTimeKind.Local).AddTicks(6213),
+                            BoughtTime = new DateTime(2022, 2, 11, 17, 26, 10, 585, DateTimeKind.Local).AddTicks(6099),
                             BuyersCountry = "PL",
                             GenericItemId = 1
                         },
@@ -130,7 +132,7 @@ namespace MerchShop.Migrations
                         {
                             Id = 3,
                             BoughtOnSale = true,
-                            BoughtTime = new DateTime(2022, 2, 12, 17, 29, 49, 824, DateTimeKind.Local).AddTicks(6216),
+                            BoughtTime = new DateTime(2022, 2, 12, 17, 26, 10, 585, DateTimeKind.Local).AddTicks(6106),
                             BuyersCountry = "PL",
                             GenericItemId = 1
                         },
@@ -138,7 +140,7 @@ namespace MerchShop.Migrations
                         {
                             Id = 4,
                             BoughtOnSale = false,
-                            BoughtTime = new DateTime(2022, 2, 9, 17, 29, 49, 824, DateTimeKind.Local).AddTicks(6219),
+                            BoughtTime = new DateTime(2022, 2, 9, 17, 26, 10, 585, DateTimeKind.Local).AddTicks(6110),
                             BuyersCountry = "PL",
                             GenericItemId = 2
                         },
@@ -146,7 +148,7 @@ namespace MerchShop.Migrations
                         {
                             Id = 5,
                             BoughtOnSale = false,
-                            BoughtTime = new DateTime(2022, 2, 10, 17, 29, 49, 824, DateTimeKind.Local).AddTicks(6222),
+                            BoughtTime = new DateTime(2022, 2, 10, 17, 26, 10, 585, DateTimeKind.Local).AddTicks(6115),
                             BuyersCountry = "PL",
                             GenericItemId = 2
                         },
@@ -154,7 +156,7 @@ namespace MerchShop.Migrations
                         {
                             Id = 6,
                             BoughtOnSale = false,
-                            BoughtTime = new DateTime(2022, 2, 10, 17, 29, 49, 824, DateTimeKind.Local).AddTicks(6225),
+                            BoughtTime = new DateTime(2022, 2, 10, 17, 26, 10, 585, DateTimeKind.Local).AddTicks(6120),
                             BuyersCountry = "PL",
                             GenericItemId = 3
                         },
@@ -162,7 +164,7 @@ namespace MerchShop.Migrations
                         {
                             Id = 7,
                             BoughtOnSale = false,
-                            BoughtTime = new DateTime(2022, 2, 11, 17, 29, 49, 824, DateTimeKind.Local).AddTicks(6228),
+                            BoughtTime = new DateTime(2022, 2, 11, 17, 26, 10, 585, DateTimeKind.Local).AddTicks(6126),
                             BuyersCountry = "PL",
                             GenericItemId = 3
                         },
@@ -170,7 +172,7 @@ namespace MerchShop.Migrations
                         {
                             Id = 8,
                             BoughtOnSale = true,
-                            BoughtTime = new DateTime(2022, 2, 12, 17, 29, 49, 824, DateTimeKind.Local).AddTicks(6231),
+                            BoughtTime = new DateTime(2022, 2, 12, 17, 26, 10, 585, DateTimeKind.Local).AddTicks(6131),
                             BuyersCountry = "PL",
                             GenericItemId = 3
                         });
@@ -202,13 +204,13 @@ namespace MerchShop.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("Order", (string)null);
+                    b.ToTable("Order");
 
                     b.HasData(
                         new
                         {
                             Id = 1,
-                            OrderDateTime = new DateTime(2022, 2, 10, 17, 29, 49, 824, DateTimeKind.Local).AddTicks(6084),
+                            OrderDateTime = new DateTime(2022, 2, 10, 17, 26, 10, 585, DateTimeKind.Local).AddTicks(5891),
                             OrderStatus = 4,
                             ShippingAddressId = 1,
                             UserId = 1
@@ -216,7 +218,7 @@ namespace MerchShop.Migrations
                         new
                         {
                             Id = 2,
-                            OrderDateTime = new DateTime(2022, 2, 12, 17, 29, 49, 824, DateTimeKind.Local).AddTicks(6132),
+                            OrderDateTime = new DateTime(2022, 2, 12, 17, 26, 10, 585, DateTimeKind.Local).AddTicks(5945),
                             OrderStatus = 3,
                             ShippingAddressId = 1,
                             UserId = 1
@@ -224,7 +226,7 @@ namespace MerchShop.Migrations
                         new
                         {
                             Id = 3,
-                            OrderDateTime = new DateTime(2022, 2, 10, 17, 29, 49, 824, DateTimeKind.Local).AddTicks(6136),
+                            OrderDateTime = new DateTime(2022, 2, 10, 17, 26, 10, 585, DateTimeKind.Local).AddTicks(5949),
                             OrderStatus = 4,
                             ShippingAddressId = 2,
                             UserId = 2
@@ -232,7 +234,7 @@ namespace MerchShop.Migrations
                         new
                         {
                             Id = 4,
-                            OrderDateTime = new DateTime(2022, 2, 13, 17, 29, 49, 824, DateTimeKind.Local).AddTicks(6139),
+                            OrderDateTime = new DateTime(2022, 2, 13, 17, 26, 10, 585, DateTimeKind.Local).AddTicks(5954),
                             OrderStatus = 2,
                             ShippingAddressId = 3,
                             UserId = 3
@@ -240,7 +242,7 @@ namespace MerchShop.Migrations
                         new
                         {
                             Id = 5,
-                            OrderDateTime = new DateTime(2022, 2, 9, 17, 29, 49, 824, DateTimeKind.Local).AddTicks(6143),
+                            OrderDateTime = new DateTime(2022, 2, 9, 17, 26, 10, 585, DateTimeKind.Local).AddTicks(5959),
                             OrderStatus = 1,
                             ShippingAddressId = 3,
                             UserId = 3
@@ -267,7 +269,7 @@ namespace MerchShop.Migrations
 
                     b.HasIndex("OrderId");
 
-                    b.ToTable("OrderedItem", (string)null);
+                    b.ToTable("OrderedItem");
 
                     b.HasData(
                         new
@@ -340,7 +342,7 @@ namespace MerchShop.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("ShippingAddress", (string)null);
+                    b.ToTable("ShippingAddress");
 
                     b.HasData(
                         new
@@ -414,7 +416,7 @@ namespace MerchShop.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("User", (string)null);
+                    b.ToTable("User");
 
                     b.HasData(
                         new

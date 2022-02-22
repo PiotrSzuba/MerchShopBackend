@@ -1,11 +1,12 @@
 import React from 'react';
 import './styles/index.scss'
 import Navbar from './components/Navbar/navbar'
-import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
 import Account from "./pages/Account";
 import Cart from "./pages/Cart";
 import ItemPage from "./pages/Item";
+import AddItemPage from "./pages/AddItem";
 
 function App() {
   document.title = "MerchShop"
@@ -17,6 +18,7 @@ function App() {
           <Route path="/Cart" element={<Cart />} />
           <Route path="/Account" element={<Account />} />
           <Route path="/Item/:id" element={<ItemPage />} />
+          <Route path="/AddIttem" element={<AddItemPage/>} />
         </Routes>
     </div>
   );

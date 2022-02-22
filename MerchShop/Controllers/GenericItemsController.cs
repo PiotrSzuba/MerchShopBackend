@@ -79,6 +79,7 @@ namespace MerchShop.Controllers
         [HttpPost]
         public async Task<ActionResult<GenericItem>> PostGenericItem(GenericItem genericItem)
         {
+
             _context.GenericItem.Add(genericItem);
             await _context.SaveChangesAsync();
 

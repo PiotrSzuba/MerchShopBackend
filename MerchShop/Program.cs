@@ -30,7 +30,7 @@ app.UseCors(x => x
     .WithOrigins("http://localhost:3000") // Allow only this origin can also have multiple origins separated with comma
     .AllowCredentials());
 
-app.UseHttpsRedirection();
+//app.UseHttpsRedirection();
 
 app.UseAuthorization();
 

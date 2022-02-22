@@ -1,21 +1,31 @@
 import React from 'react';
+import axios from 'axios';
 import {ItemCardView} from '../components/ItemCardView/ItemCardView';
 
-function Home(){
-    const items = []
-    var rows = 6;
 
-    for (var i = 0; i < rows; i++) {
-        items.push(<ItemCardView title={"Home"} price={99.9} id = {i} />)
+export default class Home extends React.Component {
+
+    state = {
+        genericItems: []
     }
 
-    return (
-        <div className="container ">
-            <div className="home-container ">
-                {items}
-            </div>
-        </div>
-    );
-}
+    componentDidMount() {
+        axios.get('https://localhost:7159/api/GenericItems/')
+          .then(res => {
+            console.log(res);
+            const genericItems = res.data;
+            this.setState({ genericItems });
+            document.title = "MerchShop";
+          })
+      }
 
-export default Home;
+    render(){
+        return (
+            <div className="container ">
+                <div className="home-container ">
+                    {this.state.genericItems.map(item => <ItemCardView title={item.name} price={item.price} id = {item.id} />)}
+                </div>
+            </div>
+        );
+    }
+}

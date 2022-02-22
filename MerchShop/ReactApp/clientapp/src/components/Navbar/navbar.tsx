@@ -12,6 +12,7 @@ function Navbar(){
                     <NavLink className="navbar-link logo-font" to="/">MerchShop</NavLink>
                 </div>
                 <div className="force-right">
+                    <NavLink className="navbar-link" to="/AddIttem">Add item</NavLink>
                     <NavLink className="navbar-link" to="/Cart"><RiShoppingCartLine/> Cart</NavLink>
                     <NavLink className="navbar-link" to="/Account"><VscAccount/> Account</NavLink>
                 </div>
