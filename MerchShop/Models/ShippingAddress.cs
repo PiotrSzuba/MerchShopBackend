@@ -7,7 +7,7 @@ namespace MerchShop.Models
     public class ShippingAddress
     {
         [Key]
-        public int Id { get; set; }
+        public int ShippingAddressId { get; set; }
 
         [Required]
         public string? Country { get; set; }

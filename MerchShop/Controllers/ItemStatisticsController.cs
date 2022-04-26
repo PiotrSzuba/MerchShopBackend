@@ -48,7 +48,7 @@ namespace MerchShop.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> PutItemStatistics(int id, ItemStatistics itemStatistics)
         {
-            if (id != itemStatistics.Id)
+            if (id != itemStatistics.ItemStatisticsId)
             {
                 return BadRequest();
             }
@@ -82,7 +82,7 @@ namespace MerchShop.Controllers
             _context.ItemStatistics.Add(itemStatistics);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetItemStatistics", new { id = itemStatistics.Id }, itemStatistics);
+            return CreatedAtAction("GetItemStatistics", new { id = itemStatistics.ItemStatisticsId }, itemStatistics);
         }
 
         // DELETE: api/ItemStatistics/5
@@ -103,7 +103,7 @@ namespace MerchShop.Controllers
 
         private bool ItemStatisticsExists(int id)
         {
-            return _context.ItemStatistics.Any(e => e.Id == id);
+            return _context.ItemStatistics.Any(e => e.ItemStatisticsId == id);
         }
     }
 }

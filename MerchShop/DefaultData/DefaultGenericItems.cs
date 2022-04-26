@@ -12,7 +12,8 @@ namespace MerchShop.DefaultData
             modelBuilder.Entity<GenericItem>().HasData(
                 new GenericItem
                 {
-                    Id = 1,
+                    GenericItemId = 1,
+                    ItemDetailsId = 1,
                     Name = "STD shirt",
                     Price = Convert.ToDecimal(79.99),
                     OnDiscount = false,
@@ -22,7 +23,8 @@ namespace MerchShop.DefaultData
                 },
                 new GenericItem
                 {
-                    Id = 2,
+                    GenericItemId = 2,
+                    ItemDetailsId = 2,
                     Name = "Better jeans",
                     Price = Convert.ToDecimal(150.99),
                     OnDiscount = false,
@@ -32,7 +34,8 @@ namespace MerchShop.DefaultData
                 },
                 new GenericItem
                 {
-                    Id = 3,
+                    GenericItemId = 3,
+                    ItemDetailsId = 2,
                     Name = "Basic hoodie",
                     Price = Convert.ToDecimal(240.99),
                     OnDiscount = false,

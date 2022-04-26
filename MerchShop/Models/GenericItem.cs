@@ -6,7 +6,9 @@ namespace MerchShop.Models
     public class GenericItem
     {
         [Key]
-        public int Id { get; set; }
+        public int GenericItemId { get; set; }
+        [ForeignKey("ItemDetails")]
+        public int ItemDetailsId { get; set; }
         [Required]
         [Column(TypeName = "varchar(255)")]
         public string? Name { get; set; }
@@ -16,9 +18,11 @@ namespace MerchShop.Models
         public bool? OnDiscount { get; set; }
         public int? DiscountValue { get; set; }
         public bool? IsInStock { get; set; }
+        [Column(TypeName = "varbinary(max)")]
         public byte[]? PreviewImage { get; set; }
 
         public virtual ICollection<OrderedItem>? Items { get; set; }
         public virtual ICollection<ItemStatistics>? ItemStatistics { get; set; }
+        public virtual ItemDetails? ItemDetails { get; set; }
     }
 }

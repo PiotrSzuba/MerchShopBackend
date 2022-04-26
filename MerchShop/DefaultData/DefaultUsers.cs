@@ -12,7 +12,7 @@ namespace MerchShop.DefaultData
             modelBuilder.Entity<User>().HasData(
                 new User
                 {
-                    Id = 1,
+                    UserId = 1,
                     Email = "sakonir@gmail.com",
                     UserName = "Admin",
                     Password = Hasher.HashEncode256("12345"),
@@ -22,7 +22,7 @@ namespace MerchShop.DefaultData
                 },
                 new User
                 {
-                    Id = 2,
+                    UserId = 2,
                     Email = "sakonir2@gmail.com",
                     UserName = "RegularUser1",
                     Password = Hasher.HashEncode256("12345"),
@@ -32,7 +32,7 @@ namespace MerchShop.DefaultData
                 },
                 new User
                 {
-                    Id = 3,
+                    UserId = 3,
                     Email = "sakonir3@gmail.com",
                     UserName = "RegularWorker",
                     Password = Hasher.HashEncode256("1234"),

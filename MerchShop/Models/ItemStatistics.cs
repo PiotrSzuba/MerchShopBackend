@@ -5,7 +5,7 @@ namespace MerchShop.Models
     public class ItemStatistics
     {
         [Key]
-        public int Id { get; set; }
+        public int ItemStatisticsId { get; set; }
         public int GenericItemId { get; set; }
         public DateTime BoughtTime { get; set; }
         public string? BuyersCountry { get; set; }

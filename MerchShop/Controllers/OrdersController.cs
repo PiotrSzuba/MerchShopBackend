@@ -48,7 +48,7 @@ namespace MerchShop.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> PutOrder(int id, Order order)
         {
-            if (id != order.Id)
+            if (id != order.OrderId)
             {
                 return BadRequest();
             }
@@ -82,7 +82,7 @@ namespace MerchShop.Controllers
             _context.Order.Add(order);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetOrder", new { id = order.Id }, order);
+            return CreatedAtAction("GetOrder", new { id = order.OrderId }, order);
         }
 
         // DELETE: api/Orders/5
@@ -103,7 +103,7 @@ namespace MerchShop.Controllers
 
         private bool OrderExists(int id)
         {
-            return _context.Order.Any(e => e.Id == id);
+            return _context.Order.Any(e => e.OrderId == id);
         }
     }
 }

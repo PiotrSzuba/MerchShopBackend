@@ -11,7 +11,7 @@ namespace MerchShop.DefaultData
             modelBuilder.Entity<ItemStatistics>().HasData(
                 new ItemStatistics
                 {
-                    Id = 1,
+                    ItemStatisticsId = 1,
                     GenericItemId = 1,
                     BoughtTime = DateTime.Now.AddDays(1),
                     BuyersCountry = "PL",
@@ -19,7 +19,7 @@ namespace MerchShop.DefaultData
                 },
                 new ItemStatistics
                 {
-                    Id = 2,
+                    ItemStatisticsId = 2,
                     GenericItemId = 1,
                     BoughtTime = DateTime.Now.AddDays(2),
                     BuyersCountry = "PL",
@@ -27,7 +27,7 @@ namespace MerchShop.DefaultData
                 },
                 new ItemStatistics
                 {
-                    Id = 3,
+                    ItemStatisticsId = 3,
                     GenericItemId = 1,
                     BoughtTime = DateTime.Now.AddDays(3),
                     BuyersCountry = "PL",
@@ -35,7 +35,7 @@ namespace MerchShop.DefaultData
                 },
                 new ItemStatistics
                 {
-                    Id = 4,
+                    ItemStatisticsId = 4,
                     GenericItemId = 2,
                     BoughtTime = DateTime.Now.AddDays(0),
                     BuyersCountry = "PL",
@@ -43,7 +43,7 @@ namespace MerchShop.DefaultData
                 },
                 new ItemStatistics
                 {
-                    Id = 5,
+                    ItemStatisticsId = 5,
                     GenericItemId = 2,
                     BoughtTime = DateTime.Now.AddDays(1),
                     BuyersCountry = "PL",
@@ -51,7 +51,7 @@ namespace MerchShop.DefaultData
                 },
                 new ItemStatistics
                 {
-                    Id = 6,
+                    ItemStatisticsId = 6,
                     GenericItemId = 3,
                     BoughtTime = DateTime.Now.AddDays(1),
                     BuyersCountry = "PL",
@@ -59,7 +59,7 @@ namespace MerchShop.DefaultData
                 },
                 new ItemStatistics
                 {
-                    Id = 7,
+                    ItemStatisticsId = 7,
                     GenericItemId = 3,
                     BoughtTime = DateTime.Now.AddDays(2),
                     BuyersCountry = "PL",
@@ -67,7 +67,7 @@ namespace MerchShop.DefaultData
                 },
                 new ItemStatistics
                 {
-                    Id = 8,
+                    ItemStatisticsId = 8,
                     GenericItemId = 3,
                     BoughtTime = DateTime.Now.AddDays(3),
                     BuyersCountry = "PL",

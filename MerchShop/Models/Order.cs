@@ -6,7 +6,8 @@ namespace MerchShop.Models
 {
     public class Order
     {
-        public int Id { get; set; }
+        [Key]
+        public int OrderId { get; set; }
 
         [Required]
         public int ShippingAddressId { get; set; }

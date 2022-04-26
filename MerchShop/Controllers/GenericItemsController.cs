@@ -48,7 +48,7 @@ namespace MerchShop.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> PutGenericItem(int id, GenericItem genericItem)
         {
-            if (id != genericItem.Id)
+            if (id != genericItem.GenericItemId)
             {
                 return BadRequest();
             }
@@ -83,7 +83,7 @@ namespace MerchShop.Controllers
             _context.GenericItem.Add(genericItem);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetGenericItem", new { id = genericItem.Id }, genericItem);
+            return CreatedAtAction("GetGenericItem", new { id = genericItem.GenericItemId }, genericItem);
         }
 
         // DELETE: api/GenericItems/5
@@ -104,7 +104,7 @@ namespace MerchShop.Controllers
 
         private bool GenericItemExists(int id)
         {
-            return _context.GenericItem.Any(e => e.Id == id);
+            return _context.GenericItem.Any(e => e.GenericItemId == id);
         }
     }
 }

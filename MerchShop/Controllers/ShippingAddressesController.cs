@@ -48,7 +48,7 @@ namespace MerchShop.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> PutShippingAddress(int id, ShippingAddress shippingAddress)
         {
-            if (id != shippingAddress.Id)
+            if (id != shippingAddress.ShippingAddressId)
             {
                 return BadRequest();
             }
@@ -82,7 +82,7 @@ namespace MerchShop.Controllers
             _context.ShippingAddress.Add(shippingAddress);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetShippingAddress", new { id = shippingAddress.Id }, shippingAddress);
+            return CreatedAtAction("GetShippingAddress", new { id = shippingAddress.ShippingAddressId }, shippingAddress);
         }
 
         // DELETE: api/ShippingAddresses/5
@@ -103,7 +103,7 @@ namespace MerchShop.Controllers
 
         private bool ShippingAddressExists(int id)
         {
-            return _context.ShippingAddress.Any(e => e.Id == id);
+            return _context.ShippingAddress.Any(e => e.ShippingAddressId == id);
         }
     }
 }

@@ -11,7 +11,7 @@ namespace MerchShop.DefaultData
             modelBuilder.Entity<ShippingAddress>().HasData(
                 new ShippingAddress
                 {
-                    Id = 1,
+                    ShippingAddressId = 1,
                     Country = "PL",
                     Region = "Dolnośląskie",
                     City = "Wrocław",
@@ -22,7 +22,7 @@ namespace MerchShop.DefaultData
                 },
                 new ShippingAddress
                 {
-                    Id = 2,
+                    ShippingAddressId = 2,
                     Country = "PL",
                     Region = "Dolnośląskie",
                     City = "Wrocław",
@@ -33,7 +33,7 @@ namespace MerchShop.DefaultData
                 },
                 new ShippingAddress
                 {
-                    Id = 3,
+                    ShippingAddressId = 3,
                     Country = "PL",
                     Region = "Dolnośląskie",
                     City = "Wrocław",

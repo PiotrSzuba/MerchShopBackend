@@ -24,17 +24,20 @@ namespace MerchShop.Migrations
 
             modelBuilder.Entity("MerchShop.Models.GenericItem", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("GenericItemId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("GenericItemId"), 1L, 1);
 
                     b.Property<int?>("DiscountValue")
                         .HasColumnType("int");
 
                     b.Property<bool?>("IsInStock")
                         .HasColumnType("bit");
+
+                    b.Property<int>("ItemDetailsId")
+                        .HasColumnType("int");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -49,47 +52,106 @@ namespace MerchShop.Migrations
                     b.Property<decimal>("Price")
                         .HasColumnType("decimal(18,2)");
 
-                    b.HasKey("Id");
+                    b.HasKey("GenericItemId");
 
-                    b.ToTable("GenericItem", (string)null);
+                    b.HasIndex("ItemDetailsId");
+
+                    b.ToTable("GenericItem");
 
                     b.HasData(
                         new
                         {
-                            Id = 1,
+                            GenericItemId = 1,
                             DiscountValue = 0,
                             IsInStock = true,
+                            ItemDetailsId = 1,
                             Name = "STD shirt",
                             OnDiscount = false,
                             Price = 79.99m
                         },
                         new
                         {
-                            Id = 2,
+                            GenericItemId = 2,
                             DiscountValue = 0,
                             IsInStock = true,
+                            ItemDetailsId = 2,
                             Name = "Better jeans",
                             OnDiscount = false,
                             Price = 150.99m
                         },
                         new
                         {
-                            Id = 3,
+                            GenericItemId = 3,
                             DiscountValue = 0,
                             IsInStock = true,
+                            ItemDetailsId = 2,
                             Name = "Basic hoodie",
                             OnDiscount = false,
                             Price = 240.99m
                         });
                 });
 
-            modelBuilder.Entity("MerchShop.Models.ItemStatistics", b =>
+            modelBuilder.Entity("MerchShop.Models.ItemDetails", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("ItemDetailsId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ItemDetailsId"), 1L, 1);
+
+                    b.Property<string>("AdditionalInformation")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Category")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Designer")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Details")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Features")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Images")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("MainDescription")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Sizes")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("ItemDetailsId");
+
+                    b.ToTable("ItemDetails");
+
+                    b.HasData(
+                        new
+                        {
+                            ItemDetailsId = 1,
+                            Sizes = "[\"XS\",\"S\",\"M\",\"L\",\"XL\"]"
+                        },
+                        new
+                        {
+                            ItemDetailsId = 2,
+                            Sizes = "[\"XS\",\"S\",\"M\",\"L\",\"XL\",\"XXL\"]"
+                        },
+                        new
+                        {
+                            ItemDetailsId = 3,
+                            Sizes = "[\"XS\",\"S\",\"M\",\"L\",\"XL\",\"XXL\",\"XXXL\"]"
+                        });
+                });
+
+            modelBuilder.Entity("MerchShop.Models.ItemStatistics", b =>
+                {
+                    b.Property<int>("ItemStatisticsId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ItemStatisticsId"), 1L, 1);
 
                     b.Property<bool>("BoughtOnSale")
                         .HasColumnType("bit");
@@ -103,74 +165,74 @@ namespace MerchShop.Migrations
                     b.Property<int>("GenericItemId")
                         .HasColumnType("int");
 
-                    b.HasKey("Id");
+                    b.HasKey("ItemStatisticsId");
 
                     b.HasIndex("GenericItemId");
 
-                    b.ToTable("ItemStatistics", (string)null);
+                    b.ToTable("ItemStatistics");
 
                     b.HasData(
                         new
                         {
-                            Id = 1,
+                            ItemStatisticsId = 1,
                             BoughtOnSale = false,
-                            BoughtTime = new DateTime(2022, 2, 10, 17, 29, 49, 824, DateTimeKind.Local).AddTicks(6207),
+                            BoughtTime = new DateTime(2022, 4, 27, 20, 43, 47, 992, DateTimeKind.Local).AddTicks(151),
                             BuyersCountry = "PL",
                             GenericItemId = 1
                         },
                         new
                         {
-                            Id = 2,
+                            ItemStatisticsId = 2,
                             BoughtOnSale = false,
-                            BoughtTime = new DateTime(2022, 2, 11, 17, 29, 49, 824, DateTimeKind.Local).AddTicks(6213),
+                            BoughtTime = new DateTime(2022, 4, 28, 20, 43, 47, 992, DateTimeKind.Local).AddTicks(155),
                             BuyersCountry = "PL",
                             GenericItemId = 1
                         },
                         new
                         {
-                            Id = 3,
+                            ItemStatisticsId = 3,
                             BoughtOnSale = true,
-                            BoughtTime = new DateTime(2022, 2, 12, 17, 29, 49, 824, DateTimeKind.Local).AddTicks(6216),
+                            BoughtTime = new DateTime(2022, 4, 29, 20, 43, 47, 992, DateTimeKind.Local).AddTicks(157),
                             BuyersCountry = "PL",
                             GenericItemId = 1
                         },
                         new
                         {
-                            Id = 4,
+                            ItemStatisticsId = 4,
                             BoughtOnSale = false,
-                            BoughtTime = new DateTime(2022, 2, 9, 17, 29, 49, 824, DateTimeKind.Local).AddTicks(6219),
+                            BoughtTime = new DateTime(2022, 4, 26, 20, 43, 47, 992, DateTimeKind.Local).AddTicks(160),
                             BuyersCountry = "PL",
                             GenericItemId = 2
                         },
                         new
                         {
-                            Id = 5,
+                            ItemStatisticsId = 5,
                             BoughtOnSale = false,
-                            BoughtTime = new DateTime(2022, 2, 10, 17, 29, 49, 824, DateTimeKind.Local).AddTicks(6222),
+                            BoughtTime = new DateTime(2022, 4, 27, 20, 43, 47, 992, DateTimeKind.Local).AddTicks(163),
                             BuyersCountry = "PL",
                             GenericItemId = 2
                         },
                         new
                         {
-                            Id = 6,
+                            ItemStatisticsId = 6,
                             BoughtOnSale = false,
-                            BoughtTime = new DateTime(2022, 2, 10, 17, 29, 49, 824, DateTimeKind.Local).AddTicks(6225),
+                            BoughtTime = new DateTime(2022, 4, 27, 20, 43, 47, 992, DateTimeKind.Local).AddTicks(165),
                             BuyersCountry = "PL",
                             GenericItemId = 3
                         },
                         new
                         {
-                            Id = 7,
+                            ItemStatisticsId = 7,
                             BoughtOnSale = false,
-                            BoughtTime = new DateTime(2022, 2, 11, 17, 29, 49, 824, DateTimeKind.Local).AddTicks(6228),
+                            BoughtTime = new DateTime(2022, 4, 28, 20, 43, 47, 992, DateTimeKind.Local).AddTicks(168),
                             BuyersCountry = "PL",
                             GenericItemId = 3
                         },
                         new
                         {
-                            Id = 8,
+                            ItemStatisticsId = 8,
                             BoughtOnSale = true,
-                            BoughtTime = new DateTime(2022, 2, 12, 17, 29, 49, 824, DateTimeKind.Local).AddTicks(6231),
+                            BoughtTime = new DateTime(2022, 4, 29, 20, 43, 47, 992, DateTimeKind.Local).AddTicks(171),
                             BuyersCountry = "PL",
                             GenericItemId = 3
                         });
@@ -178,11 +240,11 @@ namespace MerchShop.Migrations
 
             modelBuilder.Entity("MerchShop.Models.Order", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("OrderId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("OrderId"), 1L, 1);
 
                     b.Property<DateTime>("OrderDateTime")
                         .HasColumnType("datetime2");
@@ -196,51 +258,51 @@ namespace MerchShop.Migrations
                     b.Property<int?>("UserId")
                         .HasColumnType("int");
 
-                    b.HasKey("Id");
+                    b.HasKey("OrderId");
 
                     b.HasIndex("ShippingAddressId");
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("Order", (string)null);
+                    b.ToTable("Order");
 
                     b.HasData(
                         new
                         {
-                            Id = 1,
-                            OrderDateTime = new DateTime(2022, 2, 10, 17, 29, 49, 824, DateTimeKind.Local).AddTicks(6084),
+                            OrderId = 1,
+                            OrderDateTime = new DateTime(2022, 4, 27, 20, 43, 47, 992, DateTimeKind.Local).AddTicks(27),
                             OrderStatus = 4,
                             ShippingAddressId = 1,
                             UserId = 1
                         },
                         new
                         {
-                            Id = 2,
-                            OrderDateTime = new DateTime(2022, 2, 12, 17, 29, 49, 824, DateTimeKind.Local).AddTicks(6132),
+                            OrderId = 2,
+                            OrderDateTime = new DateTime(2022, 4, 29, 20, 43, 47, 992, DateTimeKind.Local).AddTicks(79),
                             OrderStatus = 3,
                             ShippingAddressId = 1,
                             UserId = 1
                         },
                         new
                         {
-                            Id = 3,
-                            OrderDateTime = new DateTime(2022, 2, 10, 17, 29, 49, 824, DateTimeKind.Local).AddTicks(6136),
+                            OrderId = 3,
+                            OrderDateTime = new DateTime(2022, 4, 27, 20, 43, 47, 992, DateTimeKind.Local).AddTicks(82),
                             OrderStatus = 4,
                             ShippingAddressId = 2,
                             UserId = 2
                         },
                         new
                         {
-                            Id = 4,
-                            OrderDateTime = new DateTime(2022, 2, 13, 17, 29, 49, 824, DateTimeKind.Local).AddTicks(6139),
+                            OrderId = 4,
+                            OrderDateTime = new DateTime(2022, 4, 30, 20, 43, 47, 992, DateTimeKind.Local).AddTicks(87),
                             OrderStatus = 2,
                             ShippingAddressId = 3,
                             UserId = 3
                         },
                         new
                         {
-                            Id = 5,
-                            OrderDateTime = new DateTime(2022, 2, 9, 17, 29, 49, 824, DateTimeKind.Local).AddTicks(6143),
+                            OrderId = 5,
+                            OrderDateTime = new DateTime(2022, 4, 26, 20, 43, 47, 992, DateTimeKind.Local).AddTicks(90),
                             OrderStatus = 1,
                             ShippingAddressId = 3,
                             UserId = 3
@@ -249,11 +311,11 @@ namespace MerchShop.Migrations
 
             modelBuilder.Entity("MerchShop.Models.OrderedItem", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("OrderedItemId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("OrderedItemId"), 1L, 1);
 
                     b.Property<int>("GenericItemId")
                         .HasColumnType("int");
@@ -261,42 +323,42 @@ namespace MerchShop.Migrations
                     b.Property<int>("OrderId")
                         .HasColumnType("int");
 
-                    b.HasKey("Id");
+                    b.HasKey("OrderedItemId");
 
                     b.HasIndex("GenericItemId");
 
                     b.HasIndex("OrderId");
 
-                    b.ToTable("OrderedItem", (string)null);
+                    b.ToTable("OrderedItem");
 
                     b.HasData(
                         new
                         {
-                            Id = 1,
+                            OrderedItemId = 1,
                             GenericItemId = 1,
                             OrderId = 1
                         },
                         new
                         {
-                            Id = 2,
+                            OrderedItemId = 2,
                             GenericItemId = 2,
                             OrderId = 1
                         },
                         new
                         {
-                            Id = 3,
+                            OrderedItemId = 3,
                             GenericItemId = 1,
                             OrderId = 2
                         },
                         new
                         {
-                            Id = 4,
+                            OrderedItemId = 4,
                             GenericItemId = 1,
                             OrderId = 2
                         },
                         new
                         {
-                            Id = 5,
+                            OrderedItemId = 5,
                             GenericItemId = 3,
                             OrderId = 3
                         });
@@ -304,11 +366,11 @@ namespace MerchShop.Migrations
 
             modelBuilder.Entity("MerchShop.Models.ShippingAddress", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("ShippingAddressId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ShippingAddressId"), 1L, 1);
 
                     b.Property<string>("ApartmentNumber")
                         .HasColumnType("nvarchar(max)");
@@ -336,16 +398,16 @@ namespace MerchShop.Migrations
                     b.Property<int>("UserId")
                         .HasColumnType("int");
 
-                    b.HasKey("Id");
+                    b.HasKey("ShippingAddressId");
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("ShippingAddress", (string)null);
+                    b.ToTable("ShippingAddress");
 
                     b.HasData(
                         new
                         {
-                            Id = 1,
+                            ShippingAddressId = 1,
                             ApartmentNumber = "3",
                             City = "Wrocław",
                             Country = "PL",
@@ -356,7 +418,7 @@ namespace MerchShop.Migrations
                         },
                         new
                         {
-                            Id = 2,
+                            ShippingAddressId = 2,
                             ApartmentNumber = "4",
                             City = "Wrocław",
                             Country = "PL",
@@ -367,7 +429,7 @@ namespace MerchShop.Migrations
                         },
                         new
                         {
-                            Id = 3,
+                            ShippingAddressId = 3,
                             City = "Wrocław",
                             Country = "PL",
                             PostalCode = "50-004",
@@ -379,11 +441,11 @@ namespace MerchShop.Migrations
 
             modelBuilder.Entity("MerchShop.Models.User", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("UserId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("UserId"), 1L, 1);
 
                     b.Property<string>("Email")
                         .IsRequired()
@@ -412,14 +474,14 @@ namespace MerchShop.Migrations
                         .HasMaxLength(32)
                         .HasColumnType("nvarchar(32)");
 
-                    b.HasKey("Id");
+                    b.HasKey("UserId");
 
-                    b.ToTable("User", (string)null);
+                    b.ToTable("User");
 
                     b.HasData(
                         new
                         {
-                            Id = 1,
+                            UserId = 1,
                             Email = "sakonir@gmail.com",
                             Name = "Piotr",
                             Password = "5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5",
@@ -429,7 +491,7 @@ namespace MerchShop.Migrations
                         },
                         new
                         {
-                            Id = 2,
+                            UserId = 2,
                             Email = "sakonir2@gmail.com",
                             Name = "War",
                             Password = "5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5",
@@ -439,7 +501,7 @@ namespace MerchShop.Migrations
                         },
                         new
                         {
-                            Id = 3,
+                            UserId = 3,
                             Email = "sakonir3@gmail.com",
                             Name = "Ur",
                             Password = "03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4",
@@ -447,6 +509,17 @@ namespace MerchShop.Migrations
                             Surname = "Got",
                             UserName = "RegularWorker"
                         });
+                });
+
+            modelBuilder.Entity("MerchShop.Models.GenericItem", b =>
+                {
+                    b.HasOne("MerchShop.Models.ItemDetails", "ItemDetails")
+                        .WithMany()
+                        .HasForeignKey("ItemDetailsId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("ItemDetails");
                 });
 
             modelBuilder.Entity("MerchShop.Models.ItemStatistics", b =>

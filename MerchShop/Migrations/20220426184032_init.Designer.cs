@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MerchShop.Migrations
 {
     [DbContext(typeof(MerchShopContext))]
-    [Migration("20220206223054_Fixed_statsV3")]
-    partial class Fixed_statsV3
+    [Migration("20220426184032_init")]
+    partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -26,17 +26,20 @@ namespace MerchShop.Migrations
 
             modelBuilder.Entity("MerchShop.Models.GenericItem", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("GenericItemId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("GenericItemId"), 1L, 1);
 
                     b.Property<int?>("DiscountValue")
                         .HasColumnType("int");
 
                     b.Property<bool?>("IsInStock")
                         .HasColumnType("bit");
+
+                    b.Property<int>("ItemDetailsId")
+                        .HasColumnType("int");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -49,20 +52,60 @@ namespace MerchShop.Migrations
                         .HasColumnType("varbinary(max)");
 
                     b.Property<decimal>("Price")
-                        .HasColumnType("decimal(10,2)");
+                        .HasColumnType("decimal(18,2)");
 
-                    b.HasKey("Id");
+                    b.HasKey("GenericItemId");
+
+                    b.HasIndex("ItemDetailsId")
+                        .IsUnique();
 
                     b.ToTable("GenericItem");
                 });
 
-            modelBuilder.Entity("MerchShop.Models.ItemStatistics", b =>
+            modelBuilder.Entity("MerchShop.Models.ItemDetails", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("ItemDetailsId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ItemDetailsId"), 1L, 1);
+
+                    b.Property<string>("AdditionalInformation")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Category")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Designer")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Details")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Features")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Images")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("MainDescription")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Sizes")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("ItemDetailsId");
+
+                    b.ToTable("ItemDetails");
+                });
+
+            modelBuilder.Entity("MerchShop.Models.ItemStatistics", b =>
+                {
+                    b.Property<int>("ItemStatisticsId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ItemStatisticsId"), 1L, 1);
 
                     b.Property<bool>("BoughtOnSale")
                         .HasColumnType("bit");
@@ -76,7 +119,7 @@ namespace MerchShop.Migrations
                     b.Property<int>("GenericItemId")
                         .HasColumnType("int");
 
-                    b.HasKey("Id");
+                    b.HasKey("ItemStatisticsId");
 
                     b.HasIndex("GenericItemId");
 
@@ -85,11 +128,11 @@ namespace MerchShop.Migrations
 
             modelBuilder.Entity("MerchShop.Models.Order", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("OrderId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("OrderId"), 1L, 1);
 
                     b.Property<DateTime>("OrderDateTime")
                         .HasColumnType("datetime2");
@@ -103,10 +146,9 @@ namespace MerchShop.Migrations
                     b.Property<int?>("UserId")
                         .HasColumnType("int");
 
-                    b.HasKey("Id");
+                    b.HasKey("OrderId");
 
-                    b.HasIndex("ShippingAddressId")
-                        .IsUnique();
+                    b.HasIndex("ShippingAddressId");
 
                     b.HasIndex("UserId");
 
@@ -115,11 +157,11 @@ namespace MerchShop.Migrations
 
             modelBuilder.Entity("MerchShop.Models.OrderedItem", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("OrderedItemId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("OrderedItemId"), 1L, 1);
 
                     b.Property<int>("GenericItemId")
                         .HasColumnType("int");
@@ -127,7 +169,7 @@ namespace MerchShop.Migrations
                     b.Property<int>("OrderId")
                         .HasColumnType("int");
 
-                    b.HasKey("Id");
+                    b.HasKey("OrderedItemId");
 
                     b.HasIndex("GenericItemId");
 
@@ -138,11 +180,11 @@ namespace MerchShop.Migrations
 
             modelBuilder.Entity("MerchShop.Models.ShippingAddress", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("ShippingAddressId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ShippingAddressId"), 1L, 1);
 
                     b.Property<string>("ApartmentNumber")
                         .HasColumnType("nvarchar(max)");
@@ -170,7 +212,7 @@ namespace MerchShop.Migrations
                     b.Property<int>("UserId")
                         .HasColumnType("int");
 
-                    b.HasKey("Id");
+                    b.HasKey("ShippingAddressId");
 
                     b.HasIndex("UserId");
 
@@ -179,11 +221,11 @@ namespace MerchShop.Migrations
 
             modelBuilder.Entity("MerchShop.Models.User", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("UserId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("UserId"), 1L, 1);
 
                     b.Property<string>("Email")
                         .IsRequired()
@@ -196,8 +238,8 @@ namespace MerchShop.Migrations
 
                     b.Property<string>("Password")
                         .IsRequired()
-                        .HasMaxLength(32)
-                        .HasColumnType("nvarchar(32)");
+                        .HasMaxLength(128)
+                        .HasColumnType("nvarchar(128)");
 
                     b.Property<string>("Role")
                         .IsRequired()
@@ -212,9 +254,20 @@ namespace MerchShop.Migrations
                         .HasMaxLength(32)
                         .HasColumnType("nvarchar(32)");
 
-                    b.HasKey("Id");
+                    b.HasKey("UserId");
 
                     b.ToTable("User");
+                });
+
+            modelBuilder.Entity("MerchShop.Models.GenericItem", b =>
+                {
+                    b.HasOne("MerchShop.Models.ItemDetails", "ItemDetails")
+                        .WithOne("GenericItem")
+                        .HasForeignKey("MerchShop.Models.GenericItem", "ItemDetailsId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("ItemDetails");
                 });
 
             modelBuilder.Entity("MerchShop.Models.ItemStatistics", b =>
@@ -231,8 +284,8 @@ namespace MerchShop.Migrations
             modelBuilder.Entity("MerchShop.Models.Order", b =>
                 {
                     b.HasOne("MerchShop.Models.ShippingAddress", "ShippingAddress")
-                        .WithOne("Order")
-                        .HasForeignKey("MerchShop.Models.Order", "ShippingAddressId")
+                        .WithMany("Order")
+                        .HasForeignKey("ShippingAddressId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -280,6 +333,11 @@ namespace MerchShop.Migrations
                     b.Navigation("ItemStatistics");
 
                     b.Navigation("Items");
+                });
+
+            modelBuilder.Entity("MerchShop.Models.ItemDetails", b =>
+                {
+                    b.Navigation("GenericItem");
                 });
 
             modelBuilder.Entity("MerchShop.Models.Order", b =>

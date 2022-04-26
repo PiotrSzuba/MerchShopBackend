@@ -11,7 +11,7 @@ namespace MerchShop.DefaultData
             modelBuilder.Entity<Order>().HasData(
                 new Order
                 {
-                    Id = 1,
+                    OrderId = 1,
                     ShippingAddressId = 1,
                     UserId = 1,
                     OrderStatus = 4,
@@ -19,7 +19,7 @@ namespace MerchShop.DefaultData
                 },
                 new Order
                 {
-                    Id = 2,
+                    OrderId = 2,
                     ShippingAddressId = 1,
                     UserId = 1,
                     OrderStatus = 3,
@@ -27,7 +27,7 @@ namespace MerchShop.DefaultData
                 },
                 new Order
                 {
-                    Id = 3,
+                    OrderId = 3,
                     ShippingAddressId = 2,
                     UserId = 2,
                     OrderStatus = 4,
@@ -35,7 +35,7 @@ namespace MerchShop.DefaultData
                 },
                 new Order
                 {
-                    Id = 4,
+                    OrderId = 4,
                     ShippingAddressId = 3,
                     UserId = 3,
                     OrderStatus = 2,
@@ -43,7 +43,7 @@ namespace MerchShop.DefaultData
                 },
                 new Order
                 {
-                    Id = 5,
+                    OrderId = 5,
                     ShippingAddressId = 3,
                     UserId = 3,
                     OrderStatus = 1,

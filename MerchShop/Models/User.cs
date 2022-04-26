@@ -6,7 +6,7 @@ namespace MerchShop.Models
     public class User
     {
         [Key]
-        public int Id { get; set; }
+        public int UserId { get; set; }
 
         [EmailAddress,Required]
         [StringLength(64, ErrorMessage = "The {0} value cannot exceed {1} characters. ")]
